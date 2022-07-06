@@ -69,6 +69,7 @@ export = (injectedStore: typeof StoreType) => {
 
         const prodData: Array<INewProduct> = await store.get(Tables.PRODUCTS_PRINCIPAL, body.idProd)
         const pvData: Array<INewPV> = await store.get(Tables.PUNTOS_VENTA, body.pv_id)
+
         const newMov: IMovStock = {
             fecha: new Date(),
             id_prod: body.idProd,
@@ -80,7 +81,7 @@ export = (injectedStore: typeof StoreType) => {
             iva: prodData[0].iva,
             id_user: user.id,
             prod_name: prodData[0].name,
-            pv_descr: `${body.pv_id === 0 ? "Deposito" : pvData[0].direccion + ` (PV: ${pvData[0].pv})`}`,
+            pv_descr: `${Number(body.pv_id) === -1 || Number(body.pv_id) === 0 ? "Deposito" : pvData[0].direccion + ` (PV: ${pvData[0].pv})`}`,
             category: prodData[0].category,
             sub_category: prodData[0].subcategory
         };
