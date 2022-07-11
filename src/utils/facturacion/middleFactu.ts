@@ -14,6 +14,7 @@ import {
 } from './AfipClass';
 import moment from 'moment';
 import errorSend from '../error';
+import { roundNumber } from '../../utils/roundNumb';
 
 const factuMiddel = () => {
     const middleware = async (
@@ -44,7 +45,6 @@ const factuMiddel = () => {
                     cliente_ndoc: body.cliente_ndoc || 0
                 }
             }
-            console.log('body.cond_iva :>> ', body.cond_iva);
             let letra = "";
             if (body.fiscal) {
                 if (pvData[0].cond_iva === 1) {
@@ -79,6 +79,8 @@ const factuMiddel = () => {
             const descuento: number = body.descuentoPerc
             let descuentoNumber: number = 0
             let descuentoPer = 0
+            console.log(' productsList.totalNeto :>> ', productsList.totalNeto);
+            console.log(' productsList.totalIva :>> ', productsList.totalIva);
             if (descuento > 0) {
                 descuentoNumber = Math.round(((productsList.totalFact * (descuento / 100)) * 100)) / 100
                 descuentoPer = descuento
@@ -100,7 +102,7 @@ const factuMiddel = () => {
                 raz_soc_origen: pvData[0].raz_soc,
                 cond_iva_origen: pvData[0].cond_iva,
                 tipo_doc_cliente: body.cliente_tdoc || 99,
-                n_doc_cliente: body.cliente_ndoc || 0,
+                n_doc_cliente: Number(body.cliente_tdoc) === 99 ? 0 : body.cliente_ndoc || 0,
                 cond_iva_cliente: body.cond_iva,
                 email_cliente: body.cliente_email || "",
                 nota_cred: false,
@@ -128,12 +130,13 @@ const factuMiddel = () => {
 
             if (body.fiscal) {
                 ivaList = await listaIva(productsList.listaProd, descuentoPer);
+                console.log('ivaList :>> ', ivaList);
                 dataFiscal = {
                     CantReg: 1,
                     PtoVta: pvData[0].pv,
                     CbteTipo: body.t_fact,
-                    DocTipo: cliente.cliente_tdoc,
-                    DocNro: cliente.cliente_ndoc,
+                    DocTipo: cliente.cliente_tdoc || 99,
+                    DocNro: Number(cliente.cliente_tdoc) === 99 ? 0 : cliente.cliente_ndoc || 0,
                     CbteFch: moment(body.fecha, "YYYY-MM-DD").format("YYYYMMDD"),
                     ImpTotal: (Math.round((productsList.totalFact) * 100)) / 100,
                     MonCotiz: 1,
@@ -183,31 +186,33 @@ const calcProdLista = (productsList: INewFactura["lista_prod"]): Promise<IfactCa
             idAnt = prod.id_prod
             dataAnt = dataProd
 
-            const totalCosto = (Math.round(((dataProd[0].precio_compra * prod.cant_prod)) * 100)) / 100;
-            const totalProd = (Math.round(((dataProd[0].vta_price * prod.cant_prod)) * 100)) / 100;
-            const totalNeto = (Math.round((totalProd / (1 + (dataProd[0].iva / 100))) * 100)) / 100;
-            const totalIva = (Math.round((totalNeto * (dataProd[0].iva / 100)) * 100)) / 100;
+            const totalCosto = (dataProd[0].precio_compra * prod.cant_prod);
+            const totalProd = (dataProd[0].vta_price * prod.cant_prod);
+            const totalNeto = (totalProd / (1 + (dataProd[0].iva / 100)));
+            const totalIva = (totalNeto * (dataProd[0].iva / 100));
 
             const newProdFact: IDetFactura = {
                 nombre_prod: dataProd[0].name,
                 cant_prod: prod.cant_prod,
                 unidad_tipo_prod: dataProd[0].unidad,
                 id_prod: prod.id_prod,
-                total_prod: totalProd,
-                total_iva: totalIva,
+                total_prod: roundNumber(totalProd),
+                total_iva: (totalIva),
                 alicuota_id: dataProd[0].iva,
-                total_costo: totalCosto,
-                total_neto: totalNeto,
+                total_costo: roundNumber(totalCosto),
+                total_neto: (totalNeto),
                 precio_ind: dataProd[0].vta_price
             }
 
             factura.listaProd.push(newProdFact);
             factura.totalFact = (Math.round((factura.totalFact + (totalProd)) * 100)) / 100;
-            factura.totalIva = (Math.round((factura.totalIva + (totalIva)) * 100)) / 100;
-            factura.totalNeto = (Math.round((factura.totalNeto + (totalNeto)) * 100)) / 100;
+            factura.totalIva = (factura.totalIva + (totalIva));
+            factura.totalNeto = (factura.totalNeto + (totalNeto));
             factura.totalCosto = (Math.round((factura.totalCosto + (totalCosto)) * 100)) / 100;
 
             if (key === productsList.length - 1) {
+                factura.totalIva = (Math.round((factura.totalIva) * 100)) / 100;
+                factura.totalNeto = (Math.round((factura.totalNeto) * 100)) / 100;
                 resolve(factura)
             }
         })
@@ -227,15 +232,15 @@ const listaIva = async (listaProd: Array<IDetFactura>, descuento: number): Promi
                     if (descuento > 0) {
                         listaIva.push({
                             Id: iva,
-                            BaseImp: (Math.round((item.total_neto - (item.total_neto * (descuento / 100))) * 100)) / 100,
-                            Importe: (Math.round((item.total_iva - (item.total_iva * (descuento / 100))) * 100)) / 100
+                            BaseImp: (item.total_neto - (item.total_neto * (descuento / 100))),
+                            Importe: (item.total_iva - (item.total_iva * (descuento / 100)))
                         })
 
                     } else {
                         listaIva.push({
                             Id: iva,
-                            BaseImp: (Math.round((item.total_neto) * 100)) / 100,
-                            Importe: (Math.round((item.total_iva) * 100)) / 100
+                            BaseImp: (item.total_neto),
+                            Importe: (item.total_iva)
                         })
                     }
                 } else {
@@ -243,21 +248,30 @@ const listaIva = async (listaProd: Array<IDetFactura>, descuento: number): Promi
                     if (descuento > 0) {
                         listaIva[index] = {
                             Id: iva,
-                            BaseImp: (Math.round((listaIva[index].BaseImp + (item.total_neto - (item.total_neto * (descuento / 100)))) * 100)) / 100,
-                            Importe: (Math.round((listaIva[index].Importe + (item.total_iva - (item.total_iva * (descuento / 100)))) * 100)) / 100
+                            BaseImp: (listaIva[index].BaseImp + (item.total_neto - (item.total_neto * (descuento / 100)))),
+                            Importe: (listaIva[index].Importe + (item.total_iva - (item.total_iva * (descuento / 100))))
                         }
                     } else {
                         listaIva[index] = {
                             Id: iva,
-                            BaseImp: (Math.round((listaIva[index].BaseImp + (item.total_neto)) * 100)) / 100,
-                            Importe: (Math.round((listaIva[index].Importe + (item.total_iva)) * 100)) / 100
+                            BaseImp: (listaIva[index].BaseImp + (item.total_neto)),
+                            Importe: (listaIva[index].Importe + (item.total_iva))
                         }
                     }
                 }
                 ivaAnt = 5;
                 if (key === listaProd.length - 1) {
-
-                    resolve(listaIva)
+                    const newList: Array<IIvaItem> = []
+                    listaIva.map((item, key2) => {
+                        newList.push({
+                            Id: item.Id,
+                            BaseImp: (Math.round(item.BaseImp * 100)) / 100,
+                            Importe: (Math.round(item.Importe * 100)) / 100
+                        })
+                        if (key2 === listaIva.length - 1) {
+                            resolve(newList)
+                        }
+                    })
                 }
             })
         })
