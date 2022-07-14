@@ -24,6 +24,7 @@ export = (injectedStore: typeof StoreType) => {
         filters.push(filter);
 
         let stockvar: Array<any> = [];
+
         filter = {
             mode: EModeWhere.strict,
             concat: EConcatWhere.and,
@@ -33,6 +34,7 @@ export = (injectedStore: typeof StoreType) => {
             ]
         };
         filters.push(filter);
+
         const nuevo = await store.list(Tables.STOCK, [`${ESelectFunct.sum}(${Columns.stock.cant}) as cant`], filters, undefined, undefined, undefined);
         const item = {
             stock: nuevo[0].cant === null ? 0 : nuevo[0].cant,

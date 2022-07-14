@@ -278,24 +278,24 @@ export = (injectedStore: typeof StoreType) => {
             filters.push(filter);
         }
 
-        let aumentoFinal = porc;
+        let aumentoFinal = 1 + porc;
         if (!aumento) {
-            aumentoFinal = (- porc);
+            aumentoFinal = (- aumentoFinal);
         }
 
         let roundNumber = 2
-        if (!roundBool) {
+        if (roundBool) {
             roundNumber = round
         }
 
         const updateCol: Array<IWhere> = [
             {
                 column: Columns.prodPrincipal.precio_compra,
-                object: `(${Columns.prodPrincipal.precio_compra} + ROUND((${Columns.prodPrincipal.precio_compra} * ${aumentoFinal}), ${roundNumber}))`
+                object: `(ROUND((${Columns.prodPrincipal.precio_compra} * ${aumentoFinal}), ${roundNumber}))`
             },
             {
                 column: Columns.prodPrincipal.vta_price,
-                object: `(${Columns.prodPrincipal.vta_price} + ROUND((${Columns.prodPrincipal.vta_price} * ${aumentoFinal}), ${roundNumber}))`
+                object: `(ROUND((${Columns.prodPrincipal.vta_price} * ${aumentoFinal}), ${roundNumber}))`
             },
         ];
 
