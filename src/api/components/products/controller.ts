@@ -349,6 +349,10 @@ export = (injectedStore: typeof StoreType) => {
         return await store.update(Tables.PRODUCTS_PRINCIPAL, { precio_compra: cost }, idProd)
     }
 
+    const pricesProd = async () => {
+        return await store.list(Tables.PRODUCTS_PRINCIPAL, [`${Columns.prodPrincipal.name}`, `FORMAT(${Columns.prodPrincipal.vta_price}, 2) as price`])
+    }
+
     return {
         list,
         upsert,
@@ -360,6 +364,7 @@ export = (injectedStore: typeof StoreType) => {
         aplicatePorcGan,
         getPrincipal,
         asignarCodBarra,
-        updateCost
+        updateCost,
+        pricesProd
     }
 }

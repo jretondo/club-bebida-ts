@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <%- myCss %>
+        <main class="container">
+            <div class="row">
+                <% productos.map(producto=>{ %>
+                    <div class="col-md-3" style="height: 120px;padding: 5px;">
+                        <div class="row" style="border: 2px solid black; height: 100%;margin-inline: 5px">
+                            <div class="col-md-4" style="padding: 5px;">
+                                <img src="<%- logo %> " style="width: 100%;margin-top: 5px;" />
+                            </div>
+                            <div class="col-md-8">
+                                <div class="col-md-12" style="height: 85%;">
+                                    <h5 style="text-align: center;padding: 0;height: 40px;">
+                                        <%- producto.name %>
+                                    </h5>
+                                </div>
+                                <div class="col-md-12" style="height: 15%;bottom: 0;">
+                                    <h4 style="text-align: center;padding: 0;">
+                                        $ <%- producto.price %>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </main>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+2022-07-16T00:47:23.488Z - error: Error occurred during reporter init: Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:248:15)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+2022-07-16T00:47:23.495Z - error: uncaughtException: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:248:15)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7) error=Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7), stack=Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:248:15)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7), exception=true, date=Fri Jul 15 2022 21:47:23 GMT-0300 (hora estándar de Argentina), process=[object Object], os=[object Object], trace=[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2022-07-16T00:50:07.016Z - error: Error occurred during reporter init: Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:248:15)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+2022-07-16T00:50:07.030Z - error: uncaughtException: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:248:15)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7) error=Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7), stack=Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:248:15)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7), exception=true, date=Fri Jul 15 2022 21:50:07 GMT-0300 (hora estándar de Argentina), process=[object Object], os=[object Object], trace=[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
+2022-07-16T00:50:47.891Z - error: Error occurred during reporter init: Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:248:15)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+2022-07-16T00:50:47.898Z - error: uncaughtException: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:248:15)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7) error=Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7), stack=Error: Error when loading extension chrome-pdf@1.10.0
+Error: Extension "chrome-pdf" is not compatible with "core" extension. Missing ".requires" information in "chrome-pdf" definition
+    at validateMinimalVersion (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/validateMinimalVersion.js:24:11)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:158:9)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7)
+    at Object._useOne (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:248:15)
+    at Object._useMany (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/extensions/extensionsManager.js:99:38)
+    at async MainReporter.init (/home/kuroneko/Documentos/Proyectos/NodeJS/club-bebida-ts/node_modules/@jsreport/jsreport-core/lib/main/reporter.js:199:7), exception=true, date=Fri Jul 15 2022 21:50:47 GMT-0300 (hora estándar de Argentina), process=[object Object], os=[object Object], trace=[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]
