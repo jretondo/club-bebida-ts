@@ -164,7 +164,7 @@ const prodPrices = (
     res: Response,
     next: NextFunction
 ) => {
-    Controller.pricesProd()
+    Controller.pricesProd(String(req.query.query))
         .then((dataFact) => {
             file(req, res, dataFact.filePath, 'application/pdf', dataFact.fileName, dataFact);
         })
