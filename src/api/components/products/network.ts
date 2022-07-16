@@ -1,3 +1,4 @@
+import { file } from './../../../network/response';
 import { Router, NextFunction, Response, Request } from 'express';
 import { success } from '../../../network/response';
 const router = Router();
@@ -158,8 +159,21 @@ const updateCost = (
         .catch(next);
 }
 
+const prodPrices = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    Controller.pricesProd()
+        .then((dataFact) => {
+            file(req, res, dataFact.filePath, 'application/pdf', dataFact.fileName, dataFact);
+        })
+        .catch(next)
+};
+
 router.get("/details/:id", secure(EPermissions.productos), get);
 router.get("/getCat", secure(EPermissions.productos), getCategorys);
+router.get("/productPrices", secure(EPermissions.productos), prodPrices)
 router.get("/getGetSubCat", secure(EPermissions.productos), getSubCategorys);
 router.get("/:page", secure(EPermissions.productos), list);
 router.post("/varCost", secure(EPermissions.productos), varCost);
