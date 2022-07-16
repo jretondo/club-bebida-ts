@@ -65,8 +65,8 @@ export const createListPricesPDF = async (
                         "format": "Legal",
                         "scale": 0.8,
                         displayHeaderFooter: true,
-                        marginBottom: "2cm",
-                        footerTemplate: "<div style='font-size: 14px;text-align: center;widht: 100%;'>Página&nbsp;<span class='pageNumber'></span>&nbsp;de&nbsp;<span class='totalPages'></span></div>",
+                        marginBottom: "4cm",
+
                         marginTop: "0.5cm",
                         headerTemplate: ""
                     },
