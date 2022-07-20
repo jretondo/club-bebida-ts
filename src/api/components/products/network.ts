@@ -164,8 +164,10 @@ const prodPrices = (
     res: Response,
     next: NextFunction
 ) => {
+    req.body.timer = Number(new Date())
     Controller.pricesProd(String(req.query.query))
         .then((dataFact) => {
+            const second = new Date()
             file(req, res, dataFact.filePath, 'application/pdf', dataFact.fileName, dataFact);
         })
         .catch(next)

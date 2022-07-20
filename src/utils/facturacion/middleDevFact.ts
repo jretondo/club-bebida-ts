@@ -87,7 +87,8 @@ const devFactMiddle = () => {
                 const total_iva = - item.total_iva
                 const total_neto = - item.total_neto
                 const total_prod = - item.total_prod
-                newDet.push({ ...item, precio_ind, total_costo, total_iva, total_neto, total_prod })
+                const cant_prod = -item.cant_prod
+                newDet.push({ ...item, precio_ind, total_costo, total_iva, total_neto, total_prod, cant_prod })
                 if (detFact.length - 1 === key) {
                     resolve(detFact)
                 }

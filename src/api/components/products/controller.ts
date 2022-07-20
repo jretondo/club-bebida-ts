@@ -375,7 +375,7 @@ export = (injectedStore: typeof StoreType) => {
 
         const cajaList: {
             filePath: string,
-            fileName: string
+            fileName: string,
         } = await createListPricesPDF(products)
         return cajaList
     }

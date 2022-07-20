@@ -134,7 +134,7 @@ export = (injectedStore: typeof StoreType) => {
                 values.push(- item.cant_prod)
                 values.push(1)
                 values.push("Venta Stock")
-                values.push(0)
+                values.push(- item.total_costo)
                 values.push(item.alicuota_id)
                 values.push(userId)
                 values.push(factId)

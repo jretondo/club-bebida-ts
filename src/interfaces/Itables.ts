@@ -1,5 +1,4 @@
 import { MetodosPago } from './../enums/EtablesDB';
-import { EModeWhere, EConcatWhere, ETypesJoin } from "../enums/EfunctMysql";
 export interface Iauth {
     id?: number,
     usuario: string,
