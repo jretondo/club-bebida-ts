@@ -111,8 +111,8 @@ const factuMiddel = () => {
                 user_id: user.id || 0,
                 seller_name: `${user.nombre} ${user.apellido}`,
                 total_fact: (Math.round((productsList.totalFact) * 100)) / 100,
-                total_iva: (Math.round((productsList.totalIva) * 100)) / 100,
-                total_neto: (Math.round((productsList.totalNeto) * 100)) / 100,
+                total_iva: pvData[0].cond_iva === 1 ? (Math.round((productsList.totalIva) * 100)) / 100 : 0,
+                total_neto: pvData[0].cond_iva === 1 ? (Math.round((productsList.totalNeto) * 100)) / 100 : (Math.round((productsList.totalFact) * 100)) / 100,
                 total_compra: (Math.round((productsList.totalCosto) * 100)) / 100,
                 forma_pago: body.forma_pago,
                 pv_id: body.pv_id,
@@ -143,11 +143,11 @@ const factuMiddel = () => {
                     MonId: "PES",
                     Concepto: Conceptos.Productos,
                     ImpTotConc: 0,
-                    ImpNeto: (Math.round((productsList.totalNeto) * 100)) / 100,
+                    ImpNeto: pvData[0].cond_iva === 1 ? (Math.round((productsList.totalNeto) * 100)) / 100 : (Math.round((productsList.totalFact) * 100)) / 100,
                     ImpOpEx: 0,
-                    ImpIVA: (Math.round((productsList.totalIva) * 100)) / 100,
+                    ImpIVA: pvData[0].cond_iva === 1 ? (Math.round((productsList.totalIva) * 100)) / 100 : 0,
                     ImpTrib: 0,
-                    Iva: ivaList
+                    Iva: pvData[0].cond_iva === 1 ? ivaList : null
                 }
             }
             req.body.newFact = newFact

@@ -24,7 +24,7 @@ const dataFactMiddle = () => {
                 const dataFiscal: FactInscriptoProd |
                     FactInscriptoServ |
                     FactMonotribProd |
-                    FactMonotribServ = await ControllerInvoices.getFiscalDataInvoice(dataFact[0].pv, dataFact[0].pv_id, true, dataFact[0].t_fact, false)
+                    FactMonotribServ = await ControllerInvoices.getFiscalDataInvoice(dataFact[0].cbte, dataFact[0].pv_id, true, dataFact[0].t_fact, false)
                 req.body.dataFiscal = dataFiscal
                 req.body.dataFiscal.CAEFchVto = moment(req.body.dataFiscal.FchVto, "YYYYMMDD")
             }
