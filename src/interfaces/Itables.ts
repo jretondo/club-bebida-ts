@@ -119,7 +119,8 @@ export interface IDetFactura {
     total_costo: number,
     total_neto: number,
     alicuota_id: number,
-    precio_ind: number
+    precio_ind: number,
+    anulada?: boolean
 }
 
 export interface IMovCtaCte {

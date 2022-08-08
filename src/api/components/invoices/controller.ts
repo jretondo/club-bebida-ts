@@ -211,7 +211,7 @@ export = (injectedStore: typeof StoreType) => {
             ]
             const rows: Promise<Array<Array<any>>> = new Promise((resolve, reject) => {
                 const rowsvalues: Array<Array<any>> = []
-                newDetFact.map((item, key) => {
+                newDetFact.map(async (item, key) => {
                     const values = []
                     values.push(factId)
                     values.push(item.id_prod)
@@ -225,6 +225,9 @@ export = (injectedStore: typeof StoreType) => {
                     values.push(item.alicuota_id)
                     values.push(item.precio_ind)
                     rowsvalues.push(values)
+                    if (item.total_prod < 0) {
+                        await store.update(Tables.DET_FACTURAS, { anulada: true }, item.id || 0)
+                    }
                     if (key === newDetFact.length - 1) {
                         resolve(rowsvalues)
                     }
@@ -514,6 +517,15 @@ export = (injectedStore: typeof StoreType) => {
             listNC
         }
     }
+    const getDetFact = async (idFact: number) => {
+        const filterList: Array<IWhereParams> = [{
+            mode: EModeWhere.strict,
+            concat: EConcatWhere.and,
+            items: [{ column: Columns.detallesFact.fact_id, object: String(idFact) },
+            { column: Columns.detallesFact.anulada, object: String(0) }]
+        }]
+        return await store.list(Tables.DET_FACTURAS, ["*"], filterList)
+    }
 
     return {
         lastInvoice,
@@ -529,6 +541,7 @@ export = (injectedStore: typeof StoreType) => {
         dummyServers,
         correctorNC,
         newMovCtaCte,
-        getFormasPago
+        getFormasPago,
+        getDetFact
     }
 }

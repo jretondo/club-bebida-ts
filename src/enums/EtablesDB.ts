@@ -164,7 +164,8 @@ enum DetalleFact {
     total_costo = "total_costo",
     total_neto = "total_neto",
     alicuota_id = "alicuota_id",
-    precio_ind = "precio_ind"
+    precio_ind = "precio_ind",
+    anulada = "anulada"
 }
 
 enum CtaCte {

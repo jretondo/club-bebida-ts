@@ -10,6 +10,7 @@ import { invoicePDFMiddle } from '../../../utils/facturacion/middlePDFinvoice';
 import { sendFactMiddle } from '../../../utils/facturacion/middleSendFact';
 import dataFactMiddle from '../../../utils/facturacion/middleDataFact';
 import devFactMiddle from '../../../utils/facturacion/middleDevFact';
+import factuMiddelDevPart from '../../../utils/facturacion/middleFactuDevPart';
 
 const list = (
     req: Request,
@@ -205,9 +206,20 @@ const correctorNC = (
     }).catch(next)
 }
 
+const detFact = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    Controller.getDetFact(Number(req.params.id)).then(data => {
+        success({ req, res, message: data });
+    }).catch(next)
+}
+
 router.get("/details/:id", secure(EPermissions.ventas), get)
     .get("/cajaList/:page", secure(EPermissions.ventas), cajaList)
     .get("/cajaListPDF", secure(EPermissions.ventas), cajaListPDF)
+    .get("/detFact/:id", secure(EPermissions.ventas), detFact)
     .get("/factDataPDF/:id", secure(EPermissions.ventas), dataFactMiddle(), invoicePDFMiddle(), sendFactMiddle(), getDataFactPDF)
     .get("/last", secure(EPermissions.ventas), getLast)
     .get("/dummy", secure(EPermissions.ventas), getDummy)
@@ -215,6 +227,7 @@ router.get("/details/:id", secure(EPermissions.ventas), get)
     .get("/afipData", secure(EPermissions.ventas), getFiscalDataInvoice)
     .get("/:page", secure(EPermissions.ventas), list)
     .post("/notaCred", secure(EPermissions.ventas), devFactMiddle(), fiscalMiddle(), invoicePDFMiddle(), sendFactMiddle(), newInvoice)
+    .post("/notaCredPart", secure(EPermissions.ventas), factuMiddelDevPart(), fiscalMiddle(), invoicePDFMiddle(), sendFactMiddle(), newInvoice)
     .post("/", secure(EPermissions.ventas), factuMiddel(), fiscalMiddle(), invoicePDFMiddle(), sendFactMiddle(), newInvoice)
     .delete("/:id", secure(EPermissions.ventas), remove)
     .put("/paytype/:id", secure(EPermissions.ventas), changePayType)
