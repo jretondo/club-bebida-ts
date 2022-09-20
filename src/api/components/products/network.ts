@@ -173,7 +173,22 @@ const prodPrices = (
         .catch(next)
 };
 
+const PDFList = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    Controller.printPDF(
+        String(req.query.query)
+    )
+        .then((dataFact: any) => {
+            file(req, res, dataFact.filePath, 'application/pdf', dataFact.fileName, dataFact);
+        })
+        .catch(next)
+};
+
 router.get("/details/:id", secure(EPermissions.productos), get);
+router.get("/pdf", secure(EPermissions.productos), PDFList);
 router.get("/getCat", secure(EPermissions.productos), getCategorys);
 router.get("/productPrices", secure(EPermissions.productos), prodPrices)
 router.get("/getGetSubCat", secure(EPermissions.productos), getSubCategorys);
