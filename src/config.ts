@@ -22,11 +22,16 @@ interface ISendmail {
     auth: authEmail
 }
 
+interface ITinify {
+    key: any
+}
+
 interface IConF {
     api: IApi,
     jwt: IJwt,
     mysql: IMysql,
-    sendmail: ISendmail
+    sendmail: ISendmail,
+    tinify: ITinify
 }
 
 let config: IConF;
@@ -54,6 +59,9 @@ if (process.env.ENTORNO === "PROD") {
                 user: process.env.SENDER_EMAIL_CONF_INFO,
                 pass: process.env.PASS_EMAIL
             }
+        },
+        tinify: {
+            key: process.env.TINIFY_KEY
         }
     }
 } else {
@@ -79,6 +87,9 @@ if (process.env.ENTORNO === "PROD") {
                 user: process.env.SENDER_EMAIL_CONF_INFO,
                 pass: process.env.PASS_EMAIL
             }
+        },
+        tinify: {
+            key: process.env.TINIFY_KEY
         }
     }
 }
