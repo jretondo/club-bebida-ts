@@ -11,6 +11,7 @@ import OptimizeImg from '../../../utils/optimeImg';
 import { IJoin, Ipages, IWhere, IWhereParams } from 'interfaces/Ifunctions';
 import { INewProduct, INewPV } from 'interfaces/Irequests';
 import { IImgProd, IMovStock } from 'interfaces/Itables';
+import { createProdListExcel } from '../../../utils/facturacion/lists/createListProductsExcel';
 
 export = (injectedStore: typeof StoreType) => {
     let store = injectedStore;
@@ -351,48 +352,31 @@ export = (injectedStore: typeof StoreType) => {
         return await store.update(Tables.PRODUCTS_PRINCIPAL, { precio_compra: cost }, idProd)
     }
 
-    const printPDF = async (item?: string) => {
+    const printPDF = async (excel?: boolean, item?: string) => {
         let filter: IWhereParams | undefined = undefined;
         let filters: Array<IWhereParams> = [];
-        let conID = false
-        let idProd = 0
         if (item) {
-            if (item.includes("id:")) {
-                conID = true
-                idProd = Number(item.replace("id:", ""))
-            } else {
-                const arrayStr = item.split(" ")
-                arrayStr.map(subItem => {
-                    filter = {
-                        mode: EModeWhere.like,
-                        concat: EConcatWhere.or,
-                        items: [
-                            { column: Columns.prodPrincipal.name, object: String(subItem) },
-                            { column: Columns.prodPrincipal.subcategory, object: String(subItem) },
-                            { column: Columns.prodPrincipal.category, object: String(subItem) },
-                            { column: Columns.prodPrincipal.short_decr, object: String(subItem) },
-                            { column: Columns.prodPrincipal.cod_barra, object: String(subItem) }
-                        ]
-                    };
-                    filters.push(filter);
-                })
-            }
-        }
-        if (conID) {
-            let data = await store.get(Tables.PRODUCTS_PRINCIPAL, idProd)
-            data[0].id_prod = data[0].id
-            return {
-                data
-            }
+            const arrayStr = item.split(" ")
+            arrayStr.map(subItem => {
+                filter = {
+                    mode: EModeWhere.like,
+                    concat: EConcatWhere.or,
+                    items: [
+                        { column: Columns.prodPrincipal.name, object: String(subItem) },
+                        { column: Columns.prodPrincipal.subcategory, object: String(subItem) },
+                        { column: Columns.prodPrincipal.category, object: String(subItem) },
+                        { column: Columns.prodPrincipal.short_decr, object: String(subItem) },
+                        { column: Columns.prodPrincipal.cod_barra, object: String(subItem) }
+                    ]
+                };
+                filters.push(filter);
+            })
+            const data = await store.list(Tables.PRODUCTS_PRINCIPAL, [ESelectFunct.all], filters);
+            const prodList = excel ? createProdListExcel(data) : await createProdListPDF(data)
+            return prodList
         } else {
-            const joinQuery: IJoin = {
-                table: Tables.PRODUCTS_IMG,
-                colJoin: Columns.prodImg.id_prod,
-                colOrigin: Columns.prodPrincipal.id,
-                type: ETypesJoin.left
-            };
-            const data = await store.list(Tables.PRODUCTS_PRINCIPAL, [ESelectFunct.all], filters, undefined, undefined, joinQuery);
-            const prodList = await createProdListPDF(data)
+            const data = await store.list(Tables.PRODUCTS_PRINCIPAL, [ESelectFunct.all]);
+            const prodList = excel ? createProdListExcel(data) : await createProdListPDF(data)
             return prodList
         }
     }

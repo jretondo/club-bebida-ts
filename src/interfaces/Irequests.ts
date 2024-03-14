@@ -51,6 +51,7 @@ export interface INewProduct {
     id_prov: number,
     vta_price: number,
     vta_fija: boolean,
+    discount?: number,
     filesName?: Array<IObjectFiles>
 }
 export interface INewStock {

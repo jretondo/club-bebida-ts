@@ -179,7 +179,8 @@ const PDFList = (
     next: NextFunction
 ) => {
     Controller.printPDF(
-        String(req.query.query)
+        false,
+        req.query.query ? String(req.query.query) : undefined,
     )
         .then((dataFact: any) => {
             file(req, res, dataFact.filePath, 'application/pdf', dataFact.fileName, dataFact);
@@ -187,8 +188,25 @@ const PDFList = (
         .catch(next)
 };
 
+
+const excelList = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    Controller.printPDF(
+        true,
+        req.query.query ? String(req.query.query) : undefined,
+    )
+        .then((dataFact: any) => {
+            file(req, res, dataFact.filePath, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", dataFact.fileName, dataFact);
+        })
+        .catch(next)
+};
+
 router.get("/details/:id", secure(EPermissions.productos), get);
 router.get("/pdf", secure(EPermissions.productos), PDFList);
+router.get("/excel", secure(EPermissions.productos), excelList);
 router.get("/getCat", secure(EPermissions.productos), getCategorys);
 router.get("/productPrices", secure(EPermissions.productos), prodPrices)
 router.get("/getGetSubCat", secure(EPermissions.productos), getSubCategorys);
