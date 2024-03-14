@@ -27,6 +27,7 @@ export const createProdListExcel = async (
             XLSX.utils.book_append_sheet(workBook, workSheet, "Compras")
             const uniqueSuffix = moment().format("YYYYMMDDHHmmss")
             const excelAddress = path.join(__dirname, "..", "..", "..", "..", "public", "prod-list", uniqueSuffix + "-Compras.xlsx")
+            console.log('excelAddress :>> ', excelAddress);
             XLSX.writeFile(workBook, excelAddress)
             setTimeout(() => {
                 fs.unlinkSync(excelAddress)
